@@ -1,0 +1,12 @@
+[package]
+name = "consume-indy-crate"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+#libindy = { path = "../../hl/indy-sdk2/libindy" } # // jovfer, async
+#indy-api-types = { path = "../../hl/indy-sdk2/libindy/indy-api-types" } # // jovfer, async
+futures = "0.3"
+libindy = { git = "https://github.com/Patrik-Stas/indy-sdk", rev = "43583e7fd3e" }
+indy-api-types = { git = "https://github.com/Patrik-Stas/indy-sdk", rev = "43583e7fd3e" }
+
