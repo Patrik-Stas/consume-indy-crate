@@ -5,23 +5,17 @@ use std::future::Future;
 use std::time::Duration;
 
 use futures::executor::block_on;
-// use indy_api_types::{PoolHandle, WalletHandle};
-// use indy_api_types::domain::wallet::{Config, Credentials, KeyDerivationMethod};
-use self::indy::Locator;
-use self::indy::domain::crypto::did::DidValue;
 use indy_api_types::domain::wallet::{Config, Credentials, KeyDerivationMethod};
+
 use self::indy::domain::anoncreds::schema::SchemaId;
 use self::indy::domain::cache::GetCacheOptions;
+use self::indy::domain::crypto::did::DidValue;
+use self::indy::Locator;
 
 pub static DEFAULT_WALLET_KEY: &str = "8dvfYSt5d1taSd6yJdpjq4emkwsPDDLYxkNFysFD2cZY";
 
-// todo: we gotta use Locator from VDR - seeem to be sort of like build_executors
-
-
 pub fn run_async() {
     println!("run_async started");
-    // let pattern = env::var("RUST_LOG").ok();
-    // LibindyDefaultLogger::init(pattern);
     let did = DidValue::new("NEy7K3xVTdopbHhfQCtb4M", None);
     let l = Locator::instance();
     l.ledger_controller.build_get_nym_request(Some(did.clone()), did.clone());
@@ -33,7 +27,7 @@ pub fn run_async() {
         id: "foobar".to_string(),
         storage_type: None,
         storage_config: None,
-        cache: None
+        cache: None,
     };
     let wallet_credentials = Credentials {
         key: DEFAULT_WALLET_KEY.to_string(),
