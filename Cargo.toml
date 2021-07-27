@@ -4,9 +4,15 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
-#libindy = { path = "../../hl/indy-sdk2/libindy" } # // jovfer, async
-#indy-api-types = { path = "../../hl/indy-sdk2/libindy/indy-api-types" } # // jovfer, async
+#libindy = { path = "../../hl/indy-sdk2/libindy" }
+#indy-api-types = { path = "../../hl/indy-sdk2/libindy/indy-api-types" }
 futures = "0.3"
-libindy = { git = "https://github.com/Patrik-Stas/indy-sdk", rev = "43583e7fd3e" }
-indy-api-types = { git = "https://github.com/Patrik-Stas/indy-sdk", rev = "43583e7fd3e" }
+#libindy = { git = "https://github.com/Patrik-Stas/indy-sdk", rev = "43583e7fd3e" }
+#indy-api-types = { git = "https://github.com/Patrik-Stas/indy-sdk", rev = "43583e7fd3e" }
 
+# via vdr-tools
+#libindy = { path = "../../work/vdr-tools/libindy" }
+#indy-api-types = { path = "../../work/vdr-tools/libindy/indy-api-types" }
+
+libindy = { git = "https://gitlab.com/PatrikStas/vdr-tools", rev = "e364aedaf2e448484ff08722bef167041bad7371" }
+indy-api-types = { git = "https://gitlab.com/PatrikStas/vdr-tools", rev = "e364aedaf2e448484ff08722bef167041bad7371" }
