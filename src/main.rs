@@ -32,6 +32,7 @@ use crate::libindy_ffi::run_libindy_ffi;
 #[cfg(feature = "pg")]
 use crate::pgwallet::wallet_plugin_loader::{init_wallet_plugin, PluginInitConfig};
 use indy::utils::logger::LibindyDefaultLogger;
+use futures::executor::block_on;
 
 
 mod libindy_async;
@@ -80,5 +81,5 @@ fn main() {
 
     let storage_credentials = Some(serde_json::from_str(storage_credentials).unwrap());
     let storage_config = Some(serde_json::from_str(storage_config).unwrap());
-    run_async_vdrtools_fork(storage_credentials, storage_config, Some("mysql".into()));
+    block_on(run_async_vdrtools_fork(storage_credentials, storage_config, Some("mysql".into())));
 }
